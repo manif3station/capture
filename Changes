@@ -1,3 +1,9 @@
+0.02 2026-04-29
+    - changed `dashboard capture.run` to print the auto-generated transcript
+      path at the end when `OUTPUT` is not provided
+    - kept explicit `OUTPUT=...` behavior unchanged so caller-managed transcript
+      files still mirror stdout exactly
+
 0.01 2026-04-29
     - added the first packaged `capture` skill with a `dashboard capture.run`
       troubleshooting transcript command

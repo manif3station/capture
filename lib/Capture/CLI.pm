@@ -17,13 +17,16 @@ sub main {
         return 1;
     }
 
-    my $command_block = @$argv == 1 ? $argv->[0] : join q{ }, @$argv;
-    my $output_path   = $ENV{OUTPUT} || File::Spec->catfile( File::Spec->tmpdir(), "capture-$$.txt" );
+    my $command_block     = @$argv == 1 ? $argv->[0] : join q{ }, @$argv;
+    my $has_explicit_path = defined $ENV{OUTPUT} && length $ENV{OUTPUT};
+    my $output_path       = $has_explicit_path ? $ENV{OUTPUT} : File::Spec->catfile( File::Spec->tmpdir(), "capture-$$.txt" );
 
-    __PACKAGE__->new->run(
+    my $result = __PACKAGE__->new->run(
         command_block => $command_block,
         output_path   => $output_path,
     );
+
+    print "Capture saved to: $result->{output_path}\n" if !$has_explicit_path;
 
     return 0;
 }

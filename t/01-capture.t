@@ -80,4 +80,22 @@ sub slurp {
     is_deeply( \@after, \@before, 'temporary helper script is cleaned up after the run' );
 }
 
+{
+    local $ENV{OUTPUT};
+
+    my $stdout = '';
+    open my $out, '>', \$stdout or die "Unable to open stdout scalar: $!";
+    local *STDOUT = $out;
+
+    my $exit = Capture::CLI::main( argv => [ q{printf 'auto-path-ok\n'} ] );
+    is( $exit, 0, 'main succeeds without explicit OUTPUT' );
+
+    like( $stdout, qr/^auto-path-ok$/m, 'default-output run still prints command output' );
+    like( $stdout, qr/^Capture saved to: (\/tmp\/capture-\d+\.txt)$/m, 'default-output run prints the saved transcript path at the end' );
+    my ($path) = $stdout =~ /^Capture saved to: (\/tmp\/capture-\d+\.txt)$/m;
+    ok( defined $path && -f $path, 'reported default transcript path exists' );
+    like( slurp($path), qr/^auto-path-ok$/m, 'default transcript file contains the command output' );
+    unlink $path or die "Unable to remove $path: $!";
+}
+
 done_testing;

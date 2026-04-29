@@ -1,0 +1,7 @@
+0.01 2026-04-29
+    - added the first packaged `capture` skill with a `dashboard capture.run`
+      troubleshooting transcript command
+    - added Docker-verified tests and 100% coverage proof for transcript,
+      capture-file, and usage-error behavior
+    - added skill-local README, docs, and ticket records for installation,
+      usage, and release evidence

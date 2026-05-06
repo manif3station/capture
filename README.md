@@ -36,6 +36,12 @@ For local development in this workspace:
 dashboard skills install ~/projects/skills/skills/capture
 ```
 
+## License
+
+`capture` is released under the MIT License.
+
+See [LICENSE](LICENSE).
+
 ## How To Use It
 
 Run a single command:

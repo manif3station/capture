@@ -54,7 +54,7 @@ sub run {
     my $transcript = q{};
     open my $cap, '>', $output_path or die "Unable to write $output_path: $!";
     $cap->autoflush;
-    open my $exec, '-|', 'bash', $run_path or die "Unable to execute $run_path: $!";
+    open my $exec, '-|', "bash $run_path 2>&1" or die "Unable to execute $run_path: $!";
     while ( my $line = <$exec> ) {
         print STDOUT $line;
         print {$cap} $line;

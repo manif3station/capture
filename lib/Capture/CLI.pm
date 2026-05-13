@@ -26,7 +26,7 @@ sub main {
         output_path   => $output_path,
     );
 
-    print "Capture saved to: $result->{output_path}\n" if !$has_explicit_path;
+    print STDOUT "Capture saved to: $result->{output_path}\n" if !$has_explicit_path;
 
     return 0;
 }
@@ -52,19 +52,20 @@ sub run {
     close $run_fh or die "Unable to close $run_path: $!";
 
     my $transcript = q{};
+    open my $cap, '>', $output_path or die "Unable to write $output_path: $!";
+    $cap->autoflush;
     open my $exec, '-|', 'bash', $run_path or die "Unable to execute $run_path: $!";
     while ( my $line = <$exec> ) {
-        print $line;
+        print STDOUT $line;
+        print {$cap} $line;
         $transcript .= $line;
     }
     close $exec;
+    close $cap or die "Unable to close $output_path: $!";
     my $exit_code = $? >> 8;
 
     unlink $run_path or die "Unable to remove $run_path: $!";
 
-    open my $cap, '>', $output_path or die "Unable to write $output_path: $!";
-    print {$cap} $transcript;
-    close $cap or die "Unable to close $output_path: $!";
 
     return {
         output_path => $output_path,

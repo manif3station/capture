@@ -62,7 +62,7 @@ Control the saved transcript path:
 OUTPUT=/tmp/capture-demo.txt dashboard capture.run $'pwd\n\nuname -a'
 ```
 
-If `OUTPUT` is not set, the skill writes to a unique file under `/tmp/` and prints that saved file path at the end so the user can find it again.
+If `OUTPUT` is not set, the skill still streams the transcript to stdout, writes the same transcript to a unique file under `/tmp/`, and prints that saved file path at the end so the user can find it again.
 
 ## Normal Cases
 
@@ -101,3 +101,4 @@ When `OUTPUT` is not set, the command ends by printing `Capture saved to: /tmp/.
 - `docs/overview.md`
 - `docs/usage.md`
 - `docs/changes/2026-04-29-initial-release.md`
+- `docs/changes/2026-05-13-stdout-restore.md`

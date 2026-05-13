@@ -34,7 +34,7 @@ OUTPUT=/tmp/dd-capture.txt dashboard capture.run $'pwd\n\nenv | sort'
 
 ## Output Behavior
 
-- stdout shows the transcript live
+- stdout shows the transcript live, including when the skill auto-generates the output path
 - the same transcript is written to the file named by `OUTPUT`
 - if `OUTPUT` is unset, the skill uses a unique file under `/tmp/`
 - when `OUTPUT` is unset, the command ends by printing `Capture saved to: /tmp/...`

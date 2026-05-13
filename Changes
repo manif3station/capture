@@ -1,3 +1,9 @@
+0.04 2026-05-13
+    - restored live stdout transcript printing for default-path `dashboard capture.run`
+      executions after the saved-file announcement change
+    - kept the generated `/tmp` path announcement and transcript-file mirroring
+      behavior intact
+
 0.03 2026-05-06
     - added an explicit MIT license to the `capture` skill
     - documented the MIT license in the README

@@ -6,4 +6,4 @@ Keep default `capture` runs mirroring live stdout.
 
 ## Goal
 
-Preserve the transcript-on-stdout behavior for `dashboard capture.run` when `OUTPUT` is unset, without regressing the generated `/tmp` path announcement added in the prior ticket.
+Preserve the transcript-on-stdout behavior for `d2 capture` when `OUTPUT` is unset, without regressing the generated `/tmp` path announcement added in the prior ticket.

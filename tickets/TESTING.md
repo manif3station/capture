@@ -27,11 +27,11 @@ docker compose -f ~/projects/skills/docker-compose.testing.yml run --rm perl-tes
 - Installed DD proof:
   - `dashboard skills install ~/projects/skills/skills/capture`
   - Result: pass, updated `capture` to version `0.02`
-  - `dashboard which capture.run`
+  - `d2 which capturrun`
   - Result: pass, resolved `/home/mv/projects/skills/.developer-dashboard/skills/capture/cli/run`
-  - `OUTPUT=/tmp/capture-proof.txt dashboard capture.run $'printf "proof\\n"\n\nfalse\n\nprintf "after\\n"'`
+  - `OUTPUT=/tmp/capture-proof.txt d2 capture $'printf "proof\\n"\n\nfalse\n\nprintf "after\\n"'`
   - Result: pass, printed the transcript and wrote the same transcript to `/tmp/capture-proof.txt`
-  - `dashboard capture.run 'printf "auto-path\\n"'`
+  - `d2 capture 'printf "auto-path\\n"'`
   - Result: pass, printed the transcript and ended with `Capture saved to: /tmp/capture-...txt`
 - Cleanup:
   - `docker compose -f ~/projects/skills/docker-compose.testing.yml run --rm perl-test bash -lc 'rm -rf /workspace/skills/capture/cover_db'`

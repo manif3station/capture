@@ -2,7 +2,7 @@
 
 ## Summary
 
-Restored live transcript printing for `dashboard capture.run` when `OUTPUT` is unset, while keeping the trailing `Capture saved to: /tmp/...` announcement.
+Restored live transcript printing for `d2 capture` when `OUTPUT` is unset, while keeping the trailing `Capture saved to: /tmp/...` announcement.
 
 ## Why
 

@@ -3,7 +3,7 @@
 ## Command
 
 ```bash
-dashboard capture.run '<command block>'
+d2 capture '<command block>'
 ```
 
 ## Command Block Rules
@@ -17,19 +17,19 @@ dashboard capture.run '<command block>'
 Single command:
 
 ```bash
-dashboard capture.run 'git status --short'
+d2 capture 'git status --short'
 ```
 
 Two-step troubleshooting flow:
 
 ```bash
-dashboard capture.run $'pwd\n\ngit status --short'
+d2 capture $'pwd\n\ngit status --short'
 ```
 
 Write the transcript to a known path:
 
 ```bash
-OUTPUT=/tmp/dd-capture.txt dashboard capture.run $'pwd\n\nenv | sort'
+OUTPUT=/tmp/dd-capture.txt d2 capture $'pwd\n\nenv | sort'
 ```
 
 ## Output Behavior

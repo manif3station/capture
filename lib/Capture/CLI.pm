@@ -13,7 +13,7 @@ sub main {
     my $argv = $args{argv} || [];
 
     if ( !@$argv ) {
-        print STDERR "Usage: dashboard capture.run <command-block>\n";
+        print STDERR "Usage: d2 capture <command-block>\n";
         return 1;
     }
 

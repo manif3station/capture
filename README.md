@@ -20,14 +20,14 @@ This skill runs a command block through `bash`, prints a formatted transcript to
 
 This skill adds a CLI command:
 
-- `dashboard capture.run`
+- `d2 capture`
 
 ## Installation
 
 Install the skill into Developer Dashboard by repo name:
 
 ```bash
-dashboard skills install capture
+d2 skills install capture
 ```
 
 ## License
@@ -41,19 +41,19 @@ See [LICENSE](LICENSE).
 Run a single command:
 
 ```bash
-dashboard capture.run 'perl -e "print qq(hello\n)"'
+d2 capture 'perl -e "print qq(hello\n)"'
 ```
 
 Run more than one command by separating them with a blank line inside the same argument:
 
 ```bash
-dashboard capture.run $'pwd\n\nls -1'
+d2 capture $'pwd\n\nls -1'
 ```
 
 Control the saved transcript path:
 
 ```bash
-OUTPUT=/tmp/capture-demo.txt dashboard capture.run $'pwd\n\nuname -a'
+OUTPUT=/tmp/capture-demo.txt d2 capture $'pwd\n\nuname -a'
 ```
 
 If `OUTPUT` is not set, the skill still streams the transcript to stdout, writes the same transcript to a unique file under `/tmp/`, and prints that saved file path at the end so the user can find it again.
